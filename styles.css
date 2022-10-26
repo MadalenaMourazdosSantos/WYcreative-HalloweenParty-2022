@@ -4,6 +4,17 @@
 
 :root {
     --white: #ffffff;
+    --purple: #8500ED;
+}
+
+@font-face {
+    font-family: "Benguiat";
+    src: url("./fonts/Benguiat-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("./fonts/Gilroy-ExtraBold.otf");
 }
 
 body {
@@ -12,15 +23,22 @@ body {
     overflow: hidden;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .unfortune-teller {
     position: relative;
     width: 100vw;
     height: 100vh;
     max-width: 100%;
     max-height: 100%;
+    overflow: hidden;
 }
 
-.unfortune-teller--background {
+.unfortune-teller__background {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,21 +46,107 @@ body {
     z-index: -1;
 }
 
-.unfortune-teller--logo {
-
+.unfortune-teller__logo {
+    width: max(25%, 130px); 
 }
 
-.unfortune-teller--container {
+.unfortune-teller__logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.unfortune-teller__logo div {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 800;
+    font-size: max(1.2vw, 19px); 
+    line-height: 27px;
+    color: var(--white);
+}
+
+.unfortune-teller__container {
+    display: flex;
+    position: relative;
     margin: 0 auto;
+    padding: 5vh 0;
     width: 55vw;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    z-index: 2;
 }
 
-.unfortune-teller--heading-1 {
+.unfortune-teller__wrapper-text {
+    width: 100%;
+}
+
+.unfortune-teller__heading-1 {
+    margin: 0 0 30px 0;
     font-family: 'Benguiat';
     font-style: normal;
     font-weight: 700;
-    font-size: 105.07px;
-    line-height: 115px;
+    font-size: max(8vw, 40px);
+    line-height: max(8vw, 40px);
     color: var(--white);
+    transition: font-size 700ms ease-in, line-height 700ms ease-in, transform 800ms 400ms ease-in;
+}
+
+.unfortune-teller__heading-2 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: max(1.2vw, 14px); 
+    line-height: max(1.2vw, 20px);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: opacity 250ms ease-in-out;
+}
+
+.unfortune-teller__button {
+    padding: 26px;
+    width: max(62%, 400px);
+    background-color: var(--purple);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-family: 'Benguiat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: max(2vw, 21px); 
+    line-height: max(2vw, 24px); 
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.unfortune-teller__cristal-ball {
+    position: absolute;
+    left: 50%;
+    bottom: -40vh;
+    width: 40vw;
+    height: 65vh;
+    background: url(./images/cristal-ball.png) no-repeat center center / contain;
+    mix-blend-mode: lighten;
+    z-index: 0;
+    transform: translateX(-50%);
+    transition: bottom 1s ease-in-out
+}
+
+/* Active */
+.unfortune-teller.unfortune-teller--active .unfortune-teller__heading-1 {
+    font-size: max(3vw, 35px);
+    line-height: max(3vw, 35px);
+    transform: translateY(-10vh);
+}
+
+.unfortune-teller.unfortune-teller--active .unfortune-teller__heading-2 {
+    opacity: 0;
+}
+
+.unfortune-teller.unfortune-teller--active .unfortune-teller__cristal-ball {
+    bottom: 16vh;
 }
