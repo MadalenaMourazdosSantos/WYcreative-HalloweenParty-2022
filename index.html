@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <section class="unfortune-teller">
+    <section class="unfortune-teller js-sectionUnfortune">
         <video class="unfortune-teller__background" muted autoplay loop>
             <source src="video/background.mp4" type="video/mp4">
         </video>
@@ -25,10 +25,12 @@
                 <h1 class="unfortune-teller__heading-1">UNFORTUNE<br>TELLER</h1>
                 <h2 class="unfortune-teller__heading-2">Queres saber o que te espera?</h2>
             </div>
-            <button class="unfortune-teller__button">Revela o meu <br>(planeamento do) futuro</button>
+            <button class="unfortune-teller__button js-tellUnfortune">Revela o meu <br>(planeamento do) futuro</button>
         </div>
 
-        <div class="unfortune-teller__cristal-ball js-tellUnfortune"></div>
+        <video class="unfortune-teller__cristal-ball" muted>
+            <source src="video/cristal-ball.mp4" type="video/mp4">
+        </video>
     </section>
 </body>
 
