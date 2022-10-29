@@ -107,6 +107,7 @@ img {
 }
 
 .unfortune-teller__button {
+    position: relative;
     padding: 26px;
     width: max(62%, 400px);
     background-color: var(--purple);
@@ -129,18 +130,35 @@ img {
     bottom: -40vh;
     width: 40vw;
     height: 65vh;
-    background: url(./images/cristal-ball.png) no-repeat center center / contain;
     mix-blend-mode: lighten;
     z-index: 0;
     transform: translateX(-50%);
     transition: bottom 1s ease-in-out
 }
 
+.unfortune-teller__phrase {
+    position: absolute;
+    left: 50%;
+    bottom: 20vw;
+    width: 20vw;
+    height: auto;
+    mix-blend-mode: lighten;
+    z-index: 0;
+    transform: translateX(-50%);
+    transition: bottom 1s ease-in-out
+}
+
+.button-start {
+    top: 0;
+    pointer-events: auto;
+    transition: top 500ms ease-in-out, opacity 500ms 250ms ease-in-out;
+}
+
 /* Active */
 .unfortune-teller.unfortune-teller--active .unfortune-teller__heading-1 {
     font-size: max(3vw, 35px);
     line-height: max(3vw, 35px);
-    transform: translateY(-10vh);
+    transform: translateY(-15vh);
 }
 
 .unfortune-teller.unfortune-teller--active .unfortune-teller__heading-2 {
@@ -149,4 +167,10 @@ img {
 
 .unfortune-teller.unfortune-teller--active .unfortune-teller__cristal-ball {
     bottom: 16vh;
+}
+
+.unfortune-teller.unfortune-teller--active .button-start {
+    top: 5vh;
+    opacity: 0;
+    pointer-events: none;
 }
