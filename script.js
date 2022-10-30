@@ -1,4 +1,4 @@
-const phrases = [
+const phrases = [ //make it a loop <3
     "video/FRASES/FRASE_1.mp4",
     "video/FRASES/FRASE_2.mp4",
     "video/FRASES/FRASE_3.mp4",
@@ -22,6 +22,8 @@ const phrases = [
 
 const section = document.querySelector('.js-sectionUnfortune');
 const btnStart = document.querySelector('.js-start');
+const btnChange = document.querySelector('.js-change');
+const btnRestart = document.querySelector('.js-restart');
 const cristalBall = document.querySelector('.js-cristalBall');
 const phrase = document.querySelector('.js-phrase');
 
@@ -38,4 +40,22 @@ function start() {
     }, 1500);
 }
 
+function change() {
+    cristalBall.play();
+    phrase.src = phrases[Math.floor(Math.random() * 18)];
+    phrase.play();  
+    cristalBall.onended = function() {
+        phrase.src = '';
+    }
+}
+
+function restart() {
+    section.classList.remove('unfortune-teller--active');
+    cristalBall.currentTime = cristalBall.duration;
+    cristalBall.pauses();
+    phrase.src = '';
+}
+
 btnStart.addEventListener('click', start);
+btnChange.addEventListener('click', change);
+btnRestart.addEventListener('click', restart);

@@ -124,34 +124,72 @@ img {
     outline: none;
 }
 
-.unfortune-teller__cristal-ball {
-    position: absolute;
-    left: 50%;
-    bottom: -40vh;
-    width: 40vw;
-    height: 65vh;
-    mix-blend-mode: lighten;
-    z-index: 0;
-    transform: translateX(-50%);
-    transition: bottom 1s ease-in-out
-}
-
-.unfortune-teller__phrase {
-    position: absolute;
-    left: 50%;
-    bottom: 20vw;
-    width: 20vw;
-    height: auto;
-    mix-blend-mode: lighten;
-    z-index: 0;
-    transform: translateX(-50%);
-    transition: bottom 1s ease-in-out
-}
-
 .button-start {
     top: 0;
     pointer-events: auto;
     transition: top 500ms ease-in-out, opacity 500ms 250ms ease-in-out;
+}
+
+.button-change {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: max(45%, 300px);
+    font-size: max(1vw, 16px); 
+    line-height: max(1vw, 16px); 
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: bottom 500ms ease-in-out, opacity 500ms 250ms ease-in-out;
+}
+
+.button-restart {
+    position: absolute;
+    bottom: 10vh;
+    right: 10vw;
+    background: none;
+    border: none;
+    font-family: 'Benguiat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease-in-out;
+}
+
+.unfortune-teller__wrapper-cristal-ball {
+    position: relative;
+    top: 0;
+    width: 40vw;
+    min-width: 400px;
+    margin: 0 auto;
+    mix-blend-mode: lighten;
+    transform: translateY(-50%);
+    transition: top 1s ease-in-out;
+}
+
+.unfortune-teller__cristal-ball {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: lighten;
+    z-index: 0;
+}
+
+.unfortune-teller__phrase {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    mix-blend-mode: lighten;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
 /* Active */
@@ -165,12 +203,23 @@ img {
     opacity: 0;
 }
 
-.unfortune-teller.unfortune-teller--active .unfortune-teller__cristal-ball {
-    bottom: 16vh;
+.unfortune-teller.unfortune-teller--active .unfortune-teller__wrapper-cristal-ball {
+    top: -50%;
 }
 
 .unfortune-teller.unfortune-teller--active .button-start {
     top: 5vh;
     opacity: 0;
     pointer-events: none;
+}
+
+.unfortune-teller.unfortune-teller--active .button-change {
+    bottom: 10vh;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.unfortune-teller.unfortune-teller--active .button-restart {
+    opacity: 1;
+    pointer-events: auto;
 }
