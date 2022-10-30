@@ -34,6 +34,12 @@ function start() {
         cristalBall.play();
         phrase.src = phrases[Math.floor(Math.random() * 18)];
         phrase.play();  
+        phrase.style.opacity = '1';
+
+        setTimeout(function() {
+            phrase.style.opacity = '0';
+        }, 18000);
+
         cristalBall.onended = function() {
             phrase.src = '';
         }
@@ -44,6 +50,7 @@ function change() {
     cristalBall.play();
     phrase.src = phrases[Math.floor(Math.random() * 18)];
     phrase.play();  
+    phrase.style.opacity = '1';
     cristalBall.onended = function() {
         phrase.src = '';
     }
@@ -54,6 +61,7 @@ function restart() {
     cristalBall.currentTime = cristalBall.duration;
     cristalBall.pauses();
     phrase.src = '';
+    phrase.style.opacity = '1';
 }
 
 btnStart.addEventListener('click', start);

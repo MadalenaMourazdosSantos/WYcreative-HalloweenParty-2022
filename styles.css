@@ -46,6 +46,23 @@ img {
     z-index: -1;
 }
 
+.unfortune-teller__demon-hand {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    z-index: 3;
+}
+
+.unfortune-teller .demon-hand01 {
+    left: -50%;
+    transition: left 1s ease-in-out;
+}
+
+.unfortune-teller .demon-hand02 {
+    right: -50%;
+    transition: right 1s ease-in-out;
+}
+
 .unfortune-teller__logo {
     width: max(25%, 130px); 
 }
@@ -190,9 +207,18 @@ img {
     mix-blend-mode: lighten;
     transform: translateX(-50%);
     z-index: 1;
+    transition: opacity 250ms ease-in-out;
 }
 
 /* Active */
+.unfortune-teller.unfortune-teller--active .demon-hand01 {
+    left: -5%;
+}
+
+.unfortune-teller.unfortune-teller--active .demon-hand02 {
+    right: -5%;
+}
+
 .unfortune-teller.unfortune-teller--active .unfortune-teller__heading-1 {
     font-size: max(3vw, 35px);
     line-height: max(3vw, 35px);
